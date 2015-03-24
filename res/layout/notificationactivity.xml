@@ -65,6 +65,6 @@
         android:textColor="#ffffff"
         android:textSize="16sp"
         style="@style/Button.Common.Orange"
-        android:text="搞 不 搞"/>
+        android:text="搞"/>
 
 </LinearLayout>
