@@ -11,14 +11,25 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int refresh=0x7f020001;
+        public static final int btn_common_orange=0x7f020000;
+        public static final int button_blue_disable=0x7f020001;
+        public static final int button_orange_clicked=0x7f020002;
+        public static final int button_orange_normal=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int refresh=0x7f020005;
     }
     public static final class id {
         public static final int access=0x7f060006;
         public static final int actionbar=0x7f060000;
+        public static final int gao=0x7f06000f;
         public static final int listView=0x7f060002;
         public static final int name=0x7f060008;
+        public static final int noti_access=0x7f06000a;
+        public static final int noti_link=0x7f06000e;
+        public static final int noti_name=0x7f06000d;
+        public static final int noti_oj=0x7f060009;
+        public static final int noti_start_time=0x7f06000b;
+        public static final int noti_week=0x7f06000c;
         public static final int oj=0x7f060007;
         public static final int re=0x7f060005;
         public static final int shuaxin=0x7f060001;
@@ -28,6 +39,7 @@ public final class R {
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int list_item=0x7f030001;
+        public static final int notificationactivity=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -60,5 +72,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f050001;
+        public static final int Button_Common_Orange=0x7f050002;
     }
 }

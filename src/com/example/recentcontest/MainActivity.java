@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
 		getActionBar().hide();
 		shuaxin = (ImageView) findViewById(R.id.shuaxin);
 		listView = (ListView) findViewById(R.id.listView);
-		//调用首先调用存储的数据
+		// 调用首先调用存储的数据
 		SharedPreferences pref = getSharedPreferences("data", 0);
 		String jsondata = pref.getString("Jsondata", null);
 		if (jsondata != null) {
@@ -69,6 +69,17 @@ public class MainActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				Oj oj = list.get(position);
+				String[] ss = new String[7];
+				ss[0] = oj.getId();
+				ss[1] = oj.getOj();
+				ss[2] = oj.getName();
+				ss[3] = oj.getLink();
+				ss[4] = oj.getStart_time();
+				ss[5] = oj.getWeek();
+				ss[6] = oj.getAccess();
+				Intent intent = new Intent(MainActivity.this,NotificationActivity.class);
+				intent.putExtra("data", ss);
+				startActivity(intent);
 			}
 
 		});
@@ -109,7 +120,7 @@ public class MainActivity extends Activity {
 
 				Log.i("cat", sb.toString());
 				JsonHelper(sb.toString());
-				//持久化存储
+				// 持久化存储
 				SharedPreferences.Editor editor = getSharedPreferences("data",
 						0).edit();
 				editor.putString("Jsondata", sb.toString());
