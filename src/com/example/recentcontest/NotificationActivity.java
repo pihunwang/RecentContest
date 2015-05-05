@@ -19,9 +19,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NotificationActivity extends Activity implements OnClickListener {
+public class NotificationActivity extends Activity {
 	TextView oj, name, link, access, time, week;
-	Button gao;
 	String ddd;
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,6 @@ public class NotificationActivity extends Activity implements OnClickListener {
 		access = (TextView) findViewById(R.id.noti_access);
 		time = (TextView) findViewById(R.id.noti_start_time);
 		week = (TextView) findViewById(R.id.noti_week);
-		gao = (Button) findViewById(R.id.gao);
 		ddd = data[4];
 		oj.setText(data[1]);
 		name.setText(data[2]);
@@ -43,36 +41,6 @@ public class NotificationActivity extends Activity implements OnClickListener {
 		time.setText(data[4]);
 		week.setText(data[5]);
 		access.setText(data[6]);
-		gao.setOnClickListener(this);
 	}
 
-	@Override
-	public void onClick(View v) {
-		Date date2 = null;
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Log.i("cat", df.format(new Date()) + "");
-		Date date1 = new Date();
-		long d1 = date1.getTime();
-		try {
-			date2 = df.parse(ddd);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		long d2 = date2.getTime();
-		// 比赛开始前半个小时到系统当前时间的相对时间
-		long di = d2 - d1;
-		long diff = d2 - d1 - 1800000;
-		if (di < 0)
-			Toast.makeText(NotificationActivity.this, "比赛已经结束了", 3000);
-		else {
-			AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-			Intent intent = new Intent(this, AlarmBroadcastReceiver.class);
-			intent.setAction("Action.Alarm");
-			PendingIntent pi = PendingIntent.getBroadcast(this, 0, intent,
-					PendingIntent.FLAG_UPDATE_CURRENT);
-			alarmManager.set(AlarmManager.RTC_WAKEUP,
-					System.currentTimeMillis() + diff, pi);
-		}
-
-	}
 }

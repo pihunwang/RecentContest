@@ -21,7 +21,6 @@ public final class R {
     public static final class id {
         public static final int access=0x7f060006;
         public static final int actionbar=0x7f060000;
-        public static final int gao=0x7f06000f;
         public static final int listView=0x7f060002;
         public static final int name=0x7f060008;
         public static final int noti_access=0x7f06000a;
